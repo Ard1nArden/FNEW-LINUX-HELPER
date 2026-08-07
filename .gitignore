@@ -1,0 +1,12 @@
+fnew
+
+*.o
+
+build/
+bin/
+
+*.tmp
+*.log
+
+.vscode/
+.idea/
