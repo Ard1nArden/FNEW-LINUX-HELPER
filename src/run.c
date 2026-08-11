@@ -6,8 +6,11 @@
 #include "include/filesystem.h"
 #include "include/PROJECT_CREATOR.h"
 
-int main(int argc, char *argv[]) {
+void run_tui() {
+    TUI();
+}
 
+int main(int argc, char *argv[]) {
     if (argc >= 2 &&
             (strcmp(argv[1], "-h") == 0 ||
              strcmp(argv[1], "--help") == 0)) {
@@ -49,6 +52,11 @@ int main(int argc, char *argv[]) {
     if (argc < 3) {
         printf("Usage: fnew {lang} [name_folder] (-s|-f)\n");
         return 1;
+    }
+
+    if (argc == 2) {
+        run_tui(argv[1]);
+        return 0;
     }
 
     Language lang = checking_language(argv[1]);
@@ -172,4 +180,5 @@ int main(int argc, char *argv[]) {
                 printf("Language is not implemented.\n");
                 return 1;
     };
+
 }
